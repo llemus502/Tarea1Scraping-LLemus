@@ -18,8 +18,8 @@ class ArticleSpider(scrapy.Spider):
             title = link
             yield response.follow(link,callback=self.parse_detail,meta={'link':link, 'contador':contador})
             
-            #contador = contador + 1 
-            if contador > 0: #25
+            contador = contador + 1 
+            if contador > 25: 
                 break;  # deja de leer links
 
     def parse_detail(self, response):
